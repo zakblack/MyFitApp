@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:MyFit.models" x:Class="MyFit.pages.HomePage">
+    <ContentPage.BindingContext>
+        <models:CoursesViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+    <StackLayout Orientation="Vertical">
+
+        <Label Text="MyFit" FontSize="40" Margin="20,20,0,0" />
+        <Grid Padding="0,20,0,0" Margin="20,0" VerticalOptions="StartAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Total des calories:" Grid.Row="0" Grid.Column="0" FontSize="16"/>
+            <Label FontSize="16" Text="644466"  Grid.Row="1" Grid.Column="0" HorizontalOptions="Center"/>
+
+            <Label Text="Total des pas:"  Grid.Row="0" Grid.Column="1" FontSize="16" />
+            <Label FontSize="16" Text="565464"  Grid.Row="1" Grid.Column="1" HorizontalOptions="Center"/>
+
+            <Label  Text="Dernière Course Calories:" Grid.Row="2" Grid.Column="0" FontSize="16"/>
+            <Label FontSize="16" Text="644466"  Grid.Row="3" Grid.Column="0" HorizontalOptions="Center"/>
+
+            <Label  Text="Dernière Course Steps:"  Grid.Row="2" Grid.Column="1" FontSize="16" />
+            <Label FontSize="16" Text="565464"  Grid.Row="3" Grid.Column="1" HorizontalOptions="Center"/>
+
+            <Button Clicked="NewCourse_Clicked" x:Name="NewCourse"  Text="Nouvelle course" Grid.Row="4" HorizontalOptions="CenterAndExpand" BackgroundColor="DodgerBlue" TextColor="white"/>
+
+            <Button Text="Déconnexion" HorizontalOptions="CenterAndExpand" Clicked="Logout_Clicked" Grid.Row="4" Grid.Column="1"/>
+
+
+
+            </Grid>
+            <Label Text="Courses :" FontSize="16" Margin="20,20,0,0" />
+            <Grid Padding="0,20,0,0" Margin="20,0" VerticalOptions="StartAndExpand" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0"  Text="Date"/>
+                <Label Grid.Row="0" Grid.Column="1"  Text="Calories"/>
+                <Label Grid.Row="0" Grid.Column="2"  Text="Steps"/>
+
+            </Grid>
+            <Grid Padding="0,0,0,0" Margin="20,0" VerticalOptions="StartAndExpand" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                
+                <ListView ItemsSource="{Binding Courses}"
+                   HasUnevenRows="true"
+                   SeparatorVisibility="None"
+                    ItemTapped="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Grid.Row="0"
+                                        Text="{Binding courseStart}"/>
+                                    <Label Grid.Column="1"
+                                       Text="{Binding calories}"
+                                       Grid.Row="0"/>
+                                    <Label Grid.Column="2"
+                                       Grid.Row="0"
+                                      
+                                       Text="{Binding steps}"/>
+                                </Grid>
+                            </ViewCell>
+                            <!-- <ViewCell Text="" TextColor="Black"/>-->
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+
+            </Grid>
+            </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFit.pages.NewCoursePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="MyFit" FontSize="40" Margin="20,20,0,0" />
+            <Label FontSize="16" Padding="30,0,30,0" Text="SVP Laissez cette page ouverte, si vous etes terminé cliquer sur Terminer."
+               
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"   />
+
+            <Button x:Name="Finish" Text="Terminer" BackgroundColor="DodgerBlue" TextColor="White" VerticalOptions="EndAndExpand" Clicked="Finish_Clicked" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
